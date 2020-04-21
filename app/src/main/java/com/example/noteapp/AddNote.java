@@ -82,18 +82,15 @@ public class AddNote extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-
         if(item.getItemId()==R.id.delete){
-            Toast.makeText(this,"delete Button Clicked", Toast.LENGTH_SHORT).show();
+            onBackPressed();
         }
         if(item.getItemId()==R.id.save){
             Note note = new Note(noteTitle.getText().toString(), noteDetails.getText().toString(),
                     todayDate, currentTime);
             NoteDatabase db = new NoteDatabase(this);
             db.addNote(note);
-            Toast.makeText(this,"save Button Clicked", Toast.LENGTH_SHORT).show();
             goToMain();
-
         }
         return super.onOptionsItemSelected(item);
     }
